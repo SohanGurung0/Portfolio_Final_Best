@@ -22,7 +22,7 @@ const PROJECTS = [
   },
   {
     id: 2,
-    title: 'Gokyo Distro',
+    title: 'Gokyo bistro',
     subtitle: 'A online platform for a virtual resturant',
     description:
       ' A proper online web for a resturant with booking, payment, register features',
