@@ -65,14 +65,26 @@ export default function Navbar() {
         >
           <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
             {/* Logo */}
-            <button
-                onClick={() => handleNav('#hero', 'HOME')}
-                className="font-display text-xl font-black tracking-widest"
-                style={{ color: 'var(--cyber-glow)', textShadow: '0 0 15px var(--cyber-glow)' }}
-                aria-label="Go to top"
-            >
-              Sohan<span style={{ color: 'var(--cyber-accent)' }}>.</span>IO
-            </button>
+            {/* Logo and Profile Pic Section */}
+            <div className="flex items-center gap-4">
+              <div className="relative group">
+                <div className="absolute -inset-1 rounded-full opacity-60 group-hover:opacity-100 blur transition duration-300" style={{ background: 'var(--cyber-glow)' }}></div>
+                  <img
+                    src="/Images/profile.jpeg"
+                    alt="Sohan Gurung"
+                    className="relative w-10 h-10 rounded-full object-cover border-2 transition-transform duration-300 group-hover:scale-105"
+                    style={{ borderColor: 'var(--cyber-glow)' }}
+                    />
+                  </div>
+                    <button
+                       onClick={() => handleNav('#hero', 'HOME')}
+                          className="font-display text-xl font-black tracking-widest hidden sm:block"
+                            style={{ color: 'var(--cyber-glow)', textShadow: '0 0 15px var(--cyber-glow)' }}
+                                aria-label="Go to top">
+                    Sohan<span style={{ color: 'var(--cyber-accent)' }}>.</span>IO
+                  </button>
+              </div>
+
 
             {/* Desktop links */}
             <ul className="hidden md:flex items-center gap-8" role="navigation" aria-label="Main navigation">
