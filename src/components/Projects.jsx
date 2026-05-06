@@ -34,6 +34,21 @@ const PROJECTS = [
     githubUrl: 'https://github.com/SohanGurung0/GokyoBistro0',
     stats: { stars: '1', forks: '0', commits: '2' },
     featured: true,
+  },
+  {
+    id: 3,
+    title: 'Over 7 Under',
+    subtitle: 'A web game about guessing higher / lower',
+    description:
+        ' A proper online web game for a singer player, they have to guess higher or lower and they win various prizes',
+    tags: ['HTML', 'CSS', 'JAVASCRIPT'],
+    color: '#ff2d78',
+    accentColor: '#ff9900',
+    gradient: 'linear-gradient(135deg, #1a0410 0%, #2d0820 50%, #1a0410 100%)',
+    liveUrl: 'https://over7under.sohangrg281.workers.dev/',
+    githubUrl: 'https://github.com/SohanGurung0/Over_Under',
+    stats: { stars: '1', forks: '0', commits: '1' },
+    featured: true,
   }/*,
   {
     id: 3,
