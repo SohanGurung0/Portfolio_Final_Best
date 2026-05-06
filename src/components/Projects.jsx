@@ -44,7 +44,7 @@ const PROJECTS = [
     tags: ['HTML', 'CSS', 'JAVASCRIPT'],
     color: '#ff2d78',
     accentColor: '#ff9900',
-    gradient: 'linear-gradient(135deg, #1a0410 0%, #2d0820 50%, #1a0410 100%)',
+    gradient: 'linear-gradient(135deg, #001a0d 0%, #002918 50%, #001a0d 100%)',
     liveUrl: 'https://over7under.sohangrg281.workers.dev/',
     githubUrl: 'https://github.com/SohanGurung0/Over_Under',
     stats: { stars: '1', forks: '0', commits: '1' },
