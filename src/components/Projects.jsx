@@ -26,7 +26,7 @@ const PROJECTS = [
     subtitle: 'A online platform for a virtual resturant',
     description:
       ' A proper online web for a resturant with booking, payment, register features',
-    tags: ['React', 'Java', 'SpringBoot', 'Postgresql', 'Docker'],
+    tags: ['React', 'Java', 'SpringBoot'],
     color: '#ff2d78',
     accentColor: '#ff9900',
     gradient: 'linear-gradient(135deg, #1a0410 0%, #2d0820 50%, #1a0410 100%)',
@@ -42,8 +42,8 @@ const PROJECTS = [
     description:
         ' A proper online web game for a singer player, they have to guess higher or lower and they win various prizes',
     tags: ['HTML', 'CSS', 'JAVASCRIPT'],
-    color: '#ff2d78',
-    accentColor: '#ff9900',
+    color: '#00ff88',
+    accentColor: '#3776ab',
     gradient: 'linear-gradient(135deg, #001a0d 0%, #002918 50%, #001a0d 100%)',
     liveUrl: 'https://over7under.sohangrg281.workers.dev/',
     githubUrl: 'https://github.com/SohanGurung0/Over_Under',
