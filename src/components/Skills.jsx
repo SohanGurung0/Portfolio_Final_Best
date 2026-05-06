@@ -8,23 +8,23 @@ import * as THREE from 'three'
 // ─── CUSTOMIZE: Update skills here ───────────────────────────
 const SKILLS = [
   // Languages
-  { name: 'Java', icon: '☕', level: 80, color: '#f89820', category: 'Language' },
-  { name: 'Python', icon: '🐍', level: 90, color: '#3776ab', category: 'Language' },
-  { name: 'JavaScript', icon: 'JS', level: 85, color: '#f0db4f', category: 'Language' },
-  { name: 'TypeScript', icon: 'TS', level: 78, color: '#3178c6', category: 'Language' },
-  { name: 'SQL', icon: '⛁', level: 85, color: '#336791', category: 'Language' },
+  { name: 'Java', icon: '☕', level: 60, color: '#f89820', category: 'Language' },
+  { name: 'Python', icon: '🐍', level: 80, color: '#3776ab', category: 'Language' },
+  { name: 'JavaScript', icon: 'JS', level: 75, color: '#f0db4f', category: 'Language' },
+  //{ name: 'TypeScript', icon: 'TS', level: 78, color: '#3178c6', category: 'Language' },
+  { name: 'SQL', icon: '⛁', level: 65, color: '#336791', category: 'Language' },
   // Frontend
-  { name: 'React', icon: '⚛', level: 95, color: '#61dafb', category: 'Frontend' },
-  { name: 'Three.js', icon: '▲', level: 70, color: '#ffffff', category: 'Frontend' },
-  { name: 'CSS/Tailwind', icon: '🎨', level: 80, color: '#38bdf8', category: 'Frontend' },
+  { name: 'React', icon: '⚛', level: 70, color: '#61dafb', category: 'Frontend' },
+  { name: 'Three.js', icon: '▲', level: 60, color: '#ffffff', category: 'Frontend' },
+  { name: 'CSS/Tailwind', icon: '🎨', level: 70, color: '#38bdf8', category: 'Frontend' },
   // Backend
-  { name: 'Node.js', icon: '⬡', level: 78, color: '#68a063', category: 'Backend' },
-  { name: 'Spring Boot', icon: '🌱', level: 75, color: '#6db33f', category: 'Backend' },
-  { name: 'FastAPI', icon: '⚡', level: 72, color: '#009688', category: 'Backend' },
+  { name: 'Node.js', icon: '⬡', level: 70, color: '#68a063', category: 'Backend' },
+  { name: 'Spring Boot', icon: '🌱', level: 60, color: '#6db33f', category: 'Backend' },
+  //{ name: 'FastAPI', icon: '⚡', level: 72, color: '#009688', category: 'Backend' },
   // DevOps
-  { name: 'Docker', icon: '🐳', level: 75, color: '#2496ed', category: 'DevOps' },
-  { name: 'AWS', icon: '☁️', level: 80, color: '#ff9900', category: 'DevOps' },
-  { name: 'CI/CD', icon: '♾', level: 72, color: '#00d4ff', category: 'DevOps' },
+  //{ name: 'Docker', icon: '🐳', level: 75, color: '#2496ed', category: 'DevOps' },
+  //{ name: 'AWS', icon: '☁️', level: 80, color: '#ff9900', category: 'DevOps' },
+  //{ name: 'CI/CD', icon: '♾', level: 72, color: '#00d4ff', category: 'DevOps' },
 ]
 
 // ─── 3D Orbiting skill balls ──────────────────────────────────
@@ -79,8 +79,8 @@ function SkillsScene() {
   const byCategory = {
     Language: SKILLS.filter(s => s.category === 'Language'),
     Frontend: SKILLS.filter(s => s.category === 'Frontend'),
-    Backend: SKILLS.filter(s => s.category === 'Backend'),
-    DevOps: SKILLS.filter(s => s.category === 'DevOps'),
+    Backend: SKILLS.filter(s => s.category === 'Backend')
+    // DevOps: SKILLS.filter(s => s.category === 'DevOps'),
   }
 
   return (
@@ -99,7 +99,7 @@ function SkillsScene() {
       <OrbitalRing skills={byCategory.Language} radius={1.4} speed={0.006} tiltX={0.3} tiltZ={0} />
       <OrbitalRing skills={byCategory.Frontend} radius={2.0} speed={-0.004} tiltX={0.5} tiltZ={0.2} />
       <OrbitalRing skills={byCategory.Backend} radius={2.6} speed={0.003} tiltX={-0.3} tiltZ={0.4} />
-      <OrbitalRing skills={byCategory.DevOps} radius={3.2} speed={-0.005} tiltX={0.1} tiltZ={-0.3} />
+      {/* <OrbitalRing skills={byCategory.DevOps} radius={3.2} speed={-0.005} tiltX={0.1} tiltZ={-0.3} />*/}
     </>
   )
 }
@@ -150,7 +150,7 @@ function SkillCard({ skill, delay }) {
 export default function Skills() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
   const [filter, setFilter] = useState('All')
-  const categories = ['All', 'Language', 'Frontend', 'Backend', 'DevOps']
+  const categories = ['All', 'Language', 'Frontend', 'Backend']
   const filtered = filter === 'All' ? SKILLS : SKILLS.filter(s => s.category === filter)
 
   return (
