@@ -197,7 +197,7 @@ export default function Skills() {
             </Canvas>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs text-center"
               style={{ color: 'rgba(0,212,255,0.3)' }}>
-              ORBITAL SKILL MAP — LIVE
+              Sohan Gurung
             </div>
           </motion.div>
 

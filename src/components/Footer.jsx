@@ -22,10 +22,8 @@ export default function Footer() {
             Sohan<span style={{ color: 'var(--cyber-accent)' }}>.</span>IO
           </div>
 
-          {/* Copy */}
           <div className="font-mono text-xs text-center" style={{ color: 'rgba(0,212,255,0.3)' }}>
-            © {year} Sohan Gurung — BUILT WITH REACT + THREE.JS + ❤️
-            {/* ── CUSTOMIZE: Your name ── */}
+            © {year} Sohan Gurung
           </div>
 
           {/* Back to top */}

@@ -4,12 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import emailjs from 'emailjs-com'
 
-// ─── EMAILJS CONFIG ───────────────────────────────────────────
-// 1. Go to https://emailjs.com → Sign up (free)
-// 2. Create an Email Service (Gmail / Outlook / etc.)
-// 3. Create an Email Template with these variables:
-//    {{from_name}}, {{from_email}}, {{message}}, {{to_name}}
-// 4. Replace the values below with your actual IDs
+
 const EMAILJS_SERVICE_ID = 'service_v7v7n3m'    // e.g. 'service_abc123'
 const EMAILJS_TEMPLATE_ID = 'template_yfugl0f'  // e.g. 'template_xyz789'
 const EMAILJS_PUBLIC_KEY = '_KfjXOdXys7CfxwYG'     // e.g. 'abcDEFghiJKLmno'
@@ -148,7 +143,7 @@ export default function Contact() {
           from_name: form.name,
           from_email: form.email,
           message: form.message,
-          to_name: 'Alex', // ── CUSTOMIZE: Your name
+          to_name: 'Sohan Gurung', // ── CUSTOMIZE: Your name
         },
         EMAILJS_PUBLIC_KEY,
       )

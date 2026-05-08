@@ -208,7 +208,7 @@ export default function About() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {/* ── CUSTOMIZE: Update tech stack ── */}
-                {['Java', 'Python', 'React', 'Node.js', 'PostgreSQL', 'Docker', 'AWS', 'TypeScript'].map((tech) => (
+                {['Java', 'Python', 'React', 'Node.js', 'SpringBoot', 'Tailwind'].map((tech) => (
                   <span
                     key={tech}
                     className="font-mono text-xs px-3 py-1.5 skill-badge"
