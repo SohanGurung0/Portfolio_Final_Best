@@ -70,7 +70,7 @@ export default function Navbar() {
               <div className="relative group">
                 <div className="absolute -inset-1 rounded-full opacity-60 group-hover:opacity-100 blur transition duration-300" style={{ background: 'var(--cyber-glow)' }}></div>
                   <img
-                    src="/Images/profile.jpeg"
+                    src="/Images/profile.jpg"
                     alt="Sohan Gurung"
                     className="relative w-10 h-10 rounded-full object-cover border-2 transition-transform duration-300 group-hover:scale-105"
                     style={{ borderColor: 'var(--cyber-glow)' }}

@@ -13,7 +13,6 @@ const PROJECTS = [
     tags: ['React', 'Java Spring', 'mysql'],
     color: '#00d4ff',
     accentColor: '#7c3aed',
-    // Replace src with actual screenshots or use placeholder colors
     gradient: 'linear-gradient(135deg, #020c1b 0%, #0a1628 50%, #071020 100%)',
     liveUrl: 'None',
     githubUrl: 'https://github.com/SohanGurung0/tictactoe',
