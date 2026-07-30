@@ -143,7 +143,7 @@ export default function Contact() {
           from_name: form.name,
           from_email: form.email,
           message: form.message,
-          to_name: 'Sohan Gurung', // ── CUSTOMIZE: Your name
+          to_name: 'Sohan Gurung',
         },
         EMAILJS_PUBLIC_KEY,
       )
@@ -155,7 +155,7 @@ export default function Contact() {
     }
   }
 
-  // ── CUSTOMIZE: Your social links ──
+  // ──social links ──
   const SOCIALS = [
     { label: 'GITHUB', href: 'https://github.com/SohanGurung0', icon: '⬡' },
     { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/sohan-grg-263818353/', icon: '▣' },
