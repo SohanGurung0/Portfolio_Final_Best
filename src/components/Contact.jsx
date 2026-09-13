@@ -186,7 +186,7 @@ export default function Contact() {
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-black text-white">
             LET'S{' '}
-            <span style={{ color: 'var(--cyber-glow)', textShadow: '0 0 20px var(--cyber-glow)' }}>
+            <span style={{ color: 'var(--cyber-glow)' }}>
               CONNECT
             </span>
           </h2>
@@ -315,7 +315,6 @@ export default function Contact() {
                         ? 'rgba(0,212,255,0.3)'
                         : 'var(--cyber-glow)',
                       color: 'var(--cyber-bg)',
-                      boxShadow: status !== 'sending' ? '0 0 25px rgba(0,212,255,0.4)' : 'none',
                     }}
                   >
                     {status === 'sending' ? (

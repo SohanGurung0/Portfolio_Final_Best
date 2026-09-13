@@ -17,9 +17,9 @@ export default function Footer() {
           {/* Logo */}
           <div
             className="font-display text-2xl font-black tracking-widest"
-            style={{ color: 'var(--cyber-glow)', textShadow: '0 0 10px var(--cyber-glow)' }}
+            style={{ color: 'var(--cyber-glow)'}}
           >
-            Sohan<span style={{ color: 'var(--cyber-accent)' }}>.</span>IO
+            Sohan's<span style={{ color: 'var(--cyber-accent)' }}>.</span>Hub
           </div>
 
           <div className="font-mono text-xs text-center" style={{ color: 'rgba(0,212,255,0.3)' }}>

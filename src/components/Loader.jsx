@@ -43,7 +43,7 @@ export default function Loader() {
         >
           <div
             className="font-display text-5xl font-black tracking-widest mb-2"
-            style={{ color: 'var(--cyber-glow)', textShadow: '0 0 30px var(--cyber-glow)' }}
+            style={{ color: 'var(--cyber-glow)'}}
           >
             NEURAL
           </div>

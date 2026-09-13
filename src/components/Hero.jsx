@@ -234,7 +234,7 @@ export default function Hero() {
             <span
               className="block glitch"
               data-text="Sohan Gurung"
-              style={{ color: 'var(--cyber-glow)', textShadow: '0 0 40px var(--cyber-glow)' }}
+              style={{ color: 'var(--cyber-glow)'}}
             >
               {/* ── CUSTOMIZE: Replace with your name ── */}
               Sohan Gurung
@@ -261,7 +261,7 @@ export default function Hero() {
               style={{
                 background: 'var(--cyber-glow)',
                 color: 'var(--cyber-bg)',
-                boxShadow: '0 0 25px var(--cyber-glow)',
+                
               }}
             >
               VIEW WORK

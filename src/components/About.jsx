@@ -88,7 +88,7 @@ function Stat({ value, label, delay }) {
     >
       <div
         className="font-display text-4xl font-black mb-1"
-        style={{ color: 'var(--cyber-glow)', textShadow: '0 0 20px var(--cyber-glow)' }}
+        style={{ color: 'var(--cyber-glow)'}}
       >
         {value}
       </div>
@@ -133,7 +133,7 @@ export default function About() {
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-black" style={{ color: 'white' }}>
             WHO AM{' '}
-            <span style={{ color: 'var(--cyber-glow)', textShadow: '0 0 20px var(--cyber-glow)' }}>
+            <span style={{ color: 'var(--cyber-glow)' }}>
               I
             </span>
           </h2>

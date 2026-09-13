@@ -8,18 +8,19 @@ import * as THREE from 'three'
 // ─── CUSTOMIZE: Update skills here ───────────────────────────
 const SKILLS = [
   // Languages
-  { name: 'Java', icon: '☕', level: 60, color: '#f89820', category: 'Language' },
-  { name: 'Python', icon: '🐍', level: 80, color: '#3776ab', category: 'Language' },
-  { name: 'JavaScript', icon: 'JS', level: 75, color: '#f0db4f', category: 'Language' },
+  { name: 'Java', icon: '☕', level: 50, color: '#f89820', category: 'Language' },
+  { name: 'Python', icon: '🐍', level: 70, color: '#3776ab', category: 'Language' },
+  { name: 'JavaScript', icon: 'JS', level: 65, color: '#f0db4f', category: 'Language' },
   //{ name: 'TypeScript', icon: 'TS', level: 78, color: '#3178c6', category: 'Language' },
   { name: 'SQL', icon: '⛁', level: 65, color: '#336791', category: 'Language' },
   // Frontend
-  { name: 'React', icon: '⚛', level: 70, color: '#61dafb', category: 'Frontend' },
-  { name: 'Three.js', icon: '▲', level: 60, color: '#ffffff', category: 'Frontend' },
-  { name: 'CSS/Tailwind', icon: '🎨', level: 70, color: '#38bdf8', category: 'Frontend' },
+  { name: 'React', icon: '⚛', level: 60, color: '#61dafb', category: 'Frontend' },
+  { name: 'Three.js', icon: '▲', level: 50, color: '#ffffff', category: 'Frontend' },
+  { name: 'CSS/Tailwind', icon: '🎨', level: 60, color: '#38bdf8', category: 'Frontend' },
   // Backend
-  { name: 'Node.js', icon: '⬡', level: 70, color: '#68a063', category: 'Backend' },
+  { name: 'Node.js', icon: '⬡', level: 60, color: '#68a063', category: 'Backend' },
   { name: 'Spring Boot', icon: '🌱', level: 60, color: '#6db33f', category: 'Backend' },
+  { name: 'Laravel', icon: '', level: 60, color: '#6db33f', category: 'Backend' },
   //{ name: 'FastAPI', icon: '⚡', level: 72, color: '#009688', category: 'Backend' },
   // DevOps
   //{ name: 'Docker', icon: '🐳', level: 75, color: '#2496ed', category: 'DevOps' },
@@ -176,7 +177,7 @@ export default function Skills() {
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-black text-white">
             TECH{' '}
-            <span style={{ color: 'var(--cyber-glow)', textShadow: '0 0 20px var(--cyber-glow)' }}>
+            <span style={{ color: 'var(--cyber-glow)' }}>
               ARSENAL
             </span>
           </h2>
