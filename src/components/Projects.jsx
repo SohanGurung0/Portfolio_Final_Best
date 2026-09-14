@@ -392,7 +392,7 @@ export default function Projects() {
               </span>
             </h2>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/SohanGurung0"
               target="_blank"
               rel="noreferrer"
               className="font-mono text-xs tracking-widest px-5 py-2.5 border transition-all hover:scale-105"
