@@ -160,7 +160,7 @@ export default function Contact() {
     { label: 'GITHUB', href: 'https://github.com/SohanGurung0', icon: '⬡' },
     { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/sohan-grg-263818353/', icon: '▣' },
     { label: 'FACEBOOK', href: 'https://www.facebook.com/sohan.grg.617329/', icon: '◈' },
-    { label: 'EMAIL', href: 'mailto:ngrg411@email.com', icon: '✉' },
+    { label: 'EMAIL', href: 'mailto:ngrg411@gmail.com', icon: '✉' },
   ]
 
   return (
