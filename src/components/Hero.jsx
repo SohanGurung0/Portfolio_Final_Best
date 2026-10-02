@@ -11,7 +11,7 @@ const SKILL_ORBS = [
   { label: 'Python', color: '#3776ab', pos: [0, 2.2, -1.5], size: 0.38 },
   { label: 'JavaScript', color: '#f0db4f', pos: [-1.8, -1.5, -1], size: 0.32 },
   { label: 'Three.js', color: '#ffffff', pos: [3, -1.2, -2], size: 0.3 },
-  { label: 'Node.js', color: '#68a063', pos: [-3, -0.5, -2], size: 0.35 },
+//  { label: 'Node.js', color: '#68a063', pos: [-3, -0.5, -2], size: 0.35 },
   { label: 'TypeScript', color: '#3178c6', pos: [1.5, -2, -1.5], size: 0.3 },
   { label: 'Docker', color: '#2496ed', pos: [-0.5, -2.5, -1], size: 0.28 },
 ]

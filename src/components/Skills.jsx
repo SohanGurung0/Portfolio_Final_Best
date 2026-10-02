@@ -18,7 +18,7 @@ const SKILLS = [
   { name: 'Three.js', icon: '▲', level: 50, color: '#ffffff', category: 'Frontend' },
   { name: 'CSS/Tailwind', icon: '🎨', level: 60, color: '#38bdf8', category: 'Frontend' },
   // Backend
-  { name: 'Node.js', icon: '⬡', level: 60, color: '#68a063', category: 'Backend' },
+//  { name: 'Node.js', icon: '⬡', level: 60, color: '#68a063', category: 'Backend' },
   { name: 'Spring Boot', icon: '🌱', level: 60, color: '#6db33f', category: 'Backend' },
   { name: 'Laravel', icon: '', level: 60, color: '#6db33f', category: 'Backend' },
   //{ name: 'FastAPI', icon: '⚡', level: 72, color: '#009688', category: 'Backend' },

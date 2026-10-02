@@ -85,7 +85,7 @@ const PROJECTS = [
     subtitle: 'Blockchain Portfolio Tracker',
     description:
       'Multi-chain portfolio tracker supporting 15+ networks with DeFi positions, NFT gallery, P&L tracking, and tax reporting exports.',
-    tags: ['React', 'TypeScript', 'Ethers.js', 'Node.js', 'MongoDB'],
+    tags: ['React', 'TypeScript', 'Ethers.js', 'MongoDB'],
     color: '#7c3aed',
     accentColor: '#00d4ff',
     gradient: 'linear-gradient(135deg, #0d0520 0%, #150a35 50%, #0d0520 100%)',

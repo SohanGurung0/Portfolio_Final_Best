@@ -1,0 +1,13 @@
+# Sohan Gurung's Portfolio
+
+> A 3D Portfolio showcasing my work as a Full-Stack Developer.
+
+## About Me
+My name is Sohan Gurung and I'm a full-Stack Developer specializing in React, Laravel and Java, currently studying and learning more.
+
+## Tech Stack
+- Frontend: React, 3D Web Technologies
+- Backend: Laravel, Java
+
+## Links
+- Website: https://www.sohangurung0.com.np
