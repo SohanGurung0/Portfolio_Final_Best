@@ -12,6 +12,10 @@ import Loader from './components/Loader'
 export default function App() {
   const [loading, setLoading] = useState(true)
 
+  // Check if we are on a 404 route
+  const path = window.location.pathname;
+  const is404 = path !== '/' && path !== '/index.html';
+
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2200)
     return () => clearTimeout(timer)
@@ -30,15 +34,19 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <Navbar />
+            {!is404 && <Navbar />}
             <main>
-              <Hero />
-              <About />
-              <Skills />
-              <Projects />
-              <Contact />
+              <Hero is404={is404} />
+              {!is404 && (
+                <>
+                  <About />
+                  <Skills />
+                  <Projects />
+                  <Contact />
+                </>
+              )}
             </main>
-            <Footer />
+            {!is404 && <Footer />}
           </motion.div>
         )}
       </AnimatePresence>

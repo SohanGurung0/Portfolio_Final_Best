@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, Suspense } from 'react'
+import React, { useRef, useState, useEffect, Suspense, useMemo } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Float, Stars, Trail, MeshDistortMaterial, Sphere } from '@react-three/drei'
 import { motion } from 'framer-motion'
@@ -165,8 +165,66 @@ function CameraRig() {
   return null
 }
 
+// ─── Warp Speed Stars (404 Page) ──────────────────────────────
+function WarpStars({ count = 2000 }) {
+  const linesRef = useRef()
+  
+  const positions = useMemo(() => {
+    const pos = new Float32Array(count * 6)
+    for (let i = 0; i < count; i++) {
+      // Create a tunnel effect by avoiding the direct center
+      const r = 5 + Math.random() * 40
+      const theta = Math.random() * Math.PI * 2
+      const x = r * Math.cos(theta)
+      const y = r * Math.sin(theta)
+      const z = (Math.random() - 0.5) * 150 // Spread along Z
+      
+      const length = 1.5 + Math.random() * 5 // Length of streak
+      
+      pos[i * 6] = x
+      pos[i * 6 + 1] = y
+      pos[i * 6 + 2] = z
+      
+      pos[i * 6 + 3] = x
+      pos[i * 6 + 4] = y
+      pos[i * 6 + 5] = z + length
+    }
+    return pos
+  }, [count])
+
+  useFrame((state, delta) => {
+    if (!linesRef.current) return
+    const posAttribute = linesRef.current.geometry.attributes.position
+    const pos = posAttribute.array
+    
+    // Very fast speed for warp effect
+    const speed = 100 * delta
+    for (let i = 0; i < count; i++) {
+      pos[i * 6 + 2] += speed
+      pos[i * 6 + 5] += speed
+      
+      if (pos[i * 6 + 2] > 20) {
+        pos[i * 6 + 2] -= 150
+        pos[i * 6 + 5] -= 150
+      }
+    }
+    posAttribute.needsUpdate = true
+  })
+
+  return (
+    <lineSegments ref={linesRef}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
+      <lineBasicMaterial color="#ffffff" transparent opacity={0.6} />
+    </lineSegments>
+  )
+}
+
+
+
 // ─── Hero ────────────────────────────────────────────────────
-export default function Hero() {
+export default function Hero({ is404 = false }) {
   const [activeSkill, setActiveSkill] = useState(null)
 
   return (
@@ -189,20 +247,25 @@ export default function Hero() {
             <pointLight position={[-5, -5, 3]} intensity={1} color="#ff2d78" />
             <pointLight position={[0, 0, 2]} intensity={0.5} color="#7c3aed" />
 
-            <Stars radius={60} depth={50} count={3000} factor={3} fade speed={0.5} />
-            <Particles />
-            <CentralCore />
-
-            {SKILL_ORBS.map((orb) => (
-              <SkillOrb
-                key={orb.label}
-                position={orb.pos}
-                color={orb.color}
-                size={orb.size}
-                label={orb.label}
-                onClick={setActiveSkill}
-              />
-            ))}
+            {is404 ? (
+              <WarpStars />
+            ) : (
+              <>
+                <Stars radius={60} depth={50} count={3000} factor={3} fade speed={0.5} />
+                <Particles />
+                <CentralCore />
+                {SKILL_ORBS.map((orb) => (
+                  <SkillOrb
+                    key={orb.label}
+                    position={orb.pos}
+                    color={orb.color}
+                    size={orb.size}
+                    label={orb.label}
+                    onClick={setActiveSkill}
+                  />
+                ))}
+              </>
+            )}
           </Suspense>
         </Canvas>
       </div>
@@ -220,67 +283,88 @@ export default function Hero() {
 
       {/* Text content */}
       <div className="relative z-10 h-full flex flex-col justify-center items-start max-w-7xl mx-auto px-8 md:px-16">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-2xl"
-        >
-          <div className="font-mono text-sm tracking-[0.3em] mb-4" style={{ color: 'var(--cyber-accent)' }}>
-            &gt; WELCOME TO MY CYBERSPACE
-          </div>
-
-          <h1 className="font-display text-5xl md:text-7xl font-black leading-none mb-6">
-            <span
-              className="block glitch"
-              data-text="Sohan Gurung"
-              style={{ color: 'var(--cyber-glow)'}}
+        {is404 ? (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="max-w-2xl"
+            style={{ fontFamily: 'Inter, sans-serif' }}
+          >
+            <h2 className="text-xl md:text-2xl text-slate-400 mb-4 tracking-tight">Sorry, we couldn't find that</h2>
+            <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-semibold text-white mb-12 tracking-tight" style={{ fontFamily: '"Playfair Display", Georgia, serif', lineHeight: 1.1 }}>
+              Error 404
+            </h1>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center px-12 py-5 text-xl font-mono tracking-[0.2em] text-black uppercase bg-[#00d4ff] hover:bg-cyan-300 transition-colors duration-200 rounded-none"
             >
-              {/* ── CUSTOMIZE: Replace with your name ── */}
-              Sohan Gurung
-            </span>
-            <span className="block text-3xl md:text-4xl font-light mt-2" style={{ color: 'rgba(224,242,254,0.8)' }}>
-              Full-Stack Developer
-            </span>
-          </h1>
+              GO HOME
+            </a>
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="max-w-2xl"
+          >
+            <div className="font-mono text-sm tracking-[0.3em] mb-4" style={{ color: 'var(--cyber-accent)' }}>
+              &gt; WELCOME TO MY CYBERSPACE
+            </div>
 
-          <p className="font-body text-lg text-blue-200/60 max-w-lg mb-8 leading-relaxed">
-            Building next-generation digital experiences at the intersection of
-            {' '}<span style={{ color: 'var(--cyber-glow)' }}>performance</span>,
-            {' '}<span style={{ color: 'var(--cyber-accent)' }}>creativity</span>, and
-            {' '}<span style={{ color: 'var(--cyber-purple)' }}>innovation</span>.
-          </p>
+            <h1 className="font-display text-5xl md:text-7xl font-black leading-none mb-6">
+              <span
+                className="block glitch"
+                data-text="Sohan Gurung"
+                style={{ color: 'var(--cyber-glow)'}}
+              >
+                {/* ── CUSTOMIZE: Replace with your name ── */}
+                Sohan Gurung
+              </span>
+              <span className="block text-3xl md:text-4xl font-light mt-2" style={{ color: 'rgba(224,242,254,0.8)' }}>
+                Full-Stack Developer
+              </span>
+            </h1>
 
-          <div className="flex flex-wrap gap-4">
-            <motion.a
-              href="#projects"
-              onClick={e => { e.preventDefault(); document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' }) }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="font-mono text-sm tracking-widest px-8 py-3 transition-all duration-300"
-              style={{
-                background: 'var(--cyber-glow)',
-                color: 'var(--cyber-bg)',
-                
-              }}
-            >
-              VIEW WORK
-            </motion.a>
-            <motion.a
-              href="#contact"
-              onClick={e => { e.preventDefault(); document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' }) }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="font-mono text-sm tracking-widest px-8 py-3 border transition-all duration-300"
-              style={{
-                borderColor: 'var(--cyber-accent)',
-                color: 'var(--cyber-accent)',
-              }}
-            >
-              CONTACT
-            </motion.a>
-          </div>
-        </motion.div>
+            <p className="font-body text-lg text-blue-200/60 max-w-lg mb-8 leading-relaxed">
+              Building next-generation digital experiences at the intersection of
+              {' '}<span style={{ color: 'var(--cyber-glow)' }}>performance</span>,
+              {' '}<span style={{ color: 'var(--cyber-accent)' }}>creativity</span>, and
+              {' '}<span style={{ color: 'var(--cyber-purple)' }}>innovation</span>.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                href="#projects"
+                onClick={e => { e.preventDefault(); document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' }) }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="font-mono text-sm tracking-widest px-8 py-3 transition-all duration-300"
+                style={{
+                  background: 'var(--cyber-glow)',
+                  color: 'var(--cyber-bg)',
+                  
+                }}
+              >
+                VIEW WORK
+              </motion.a>
+              <motion.a
+                href="#contact"
+                onClick={e => { e.preventDefault(); document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' }) }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="font-mono text-sm tracking-widest px-8 py-3 border transition-all duration-300"
+                style={{
+                  borderColor: 'var(--cyber-accent)',
+                  color: 'var(--cyber-accent)',
+                }}
+              >
+                CONTACT
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
 
         {/* Active skill tooltip */}
         {activeSkill && (
@@ -302,20 +386,22 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="font-mono text-xs tracking-widest" style={{ color: 'rgba(0,212,255,0.4)' }}>SCROLL</span>
+      {!is404 && (
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-px h-12"
-          style={{ background: 'linear-gradient(to bottom, var(--cyber-glow), transparent)' }}
-        />
-      </motion.div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <span className="font-mono text-xs tracking-widest" style={{ color: 'rgba(0,212,255,0.4)' }}>SCROLL</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-px h-12"
+            style={{ background: 'linear-gradient(to bottom, var(--cyber-glow), transparent)' }}
+          />
+        </motion.div>
+      )}
 
       {/* Corner frame */}
       <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
