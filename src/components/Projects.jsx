@@ -74,7 +74,7 @@ const PROJECTS = [
     color: '#00d4ff',
     accentColor: '#7c3aed',
     gradient: 'linear-gradient(135deg, #020c1b 0%, #0a1628 50%, #071020 100%)',
-    liveUrl: 'None',
+    liveUrl: 'pet-shop.sohangrg.me',
     githubUrl: 'https://github.com/SohanGurung0/pet-shop',
     stats: { stars: '4', forks: '5', commits: '29' },
     featured: true,
